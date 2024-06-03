@@ -18,7 +18,7 @@ func TestEndpointWithRateLimiter(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
-	repo := repository.NewRedisRepository(configs.Host, "", 0)
+	repo := repository.NewRedisRepository("localhost:6379", "", 0)
 	limiter := ratelimiter.NewRateLimiter(repo, configs.GetLimitConfig())
 	router := http.NewServeMux()
 	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {

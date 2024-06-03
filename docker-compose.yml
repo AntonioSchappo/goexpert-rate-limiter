@@ -8,7 +8,24 @@ services:
       - '6379:6379'
     volumes:
       - redis_data:/data
+    networks:
+      - my-network
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: go_app
+    ports:
+      - '8080:8080'
+    depends_on:
+      - redis
+    networks:
+      - my-network
 
 volumes:
   redis_data:
     driver: local
+
+networks:
+  my-network:

@@ -3,7 +3,6 @@ module github.com/AntonioSchappo/goexpert-rate-limiter
 go 1.22.2
 
 require (
-	github.com/go-chi/chi v1.5.5
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/spf13/viper v1.18.2
 	github.com/stretchr/testify v1.8.4
